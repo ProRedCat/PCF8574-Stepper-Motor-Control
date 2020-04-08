@@ -10,7 +10,7 @@ void setup() {
 
 void loop() {
   mainStepper.stepForward(); //Makes the stepper motor do one step forwards
-  mainStepper.setBackward(); //Makes the stepper motor do one step backwards
+  mainStepper.stepBackward(); //Makes the stepper motor do one step backwards
 
   //NOTE - This library does not account for how many steps per revolution of a stepper motor, or the delay that should be added between each step
 }
