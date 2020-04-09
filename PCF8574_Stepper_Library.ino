@@ -2,15 +2,16 @@
 #include "PCF8574.h"
 
 PCF8574 stepperExpander(0x20); //Create the PCF8574 object at the hex address the PCF8574 chip is at 
+
 StepperMotor mainStepper(stepperExpander, 0, 1, 2, 3); //When making the new object you can either use P0, P1, P2, ect.. or use numbers
+//StepperMotor mainStepper(stepperExpander, 0, 1); //Config for two wire contol
 
 void setup() {
-  stepperExpander.begin();
+  mainStepper.SSpeed(100); //Set speed to 100RPM (This is a softcap, library has limited to 100RPM to not cause problems with missing steps, change the library if you need to)
+  stepperExpander.begin(); //Remember to .begin() the PCF8574 chip or else it will not output 
 }
 
 void loop() {
-  mainStepper.stepForward(); //Makes the stepper motor do one step forwards
-  mainStepper.stepBackward(); //Makes the stepper motor do one step backwards
-
-  //NOTE - This library does not account for how many steps per revolution of a stepper motor, or the delay that should be added between each step
+  mainStepper.SStep(100); //Step 100 forwards
+  mainStepper.SStep(-100); //Step 100 backwards
 }

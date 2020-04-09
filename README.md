@@ -3,9 +3,7 @@ A library that can be used with a PCF8574 chip to control a stepper motor with e
 
 Requires the PCF8574 library made by xreef https://github.com/xreef/PCF8574_library
 
-This library cannot control the speed of the motor as it does not calculate the delay between each step so in the Arduino program 
-you will need to find out the delay between each step yourself. For information how to find the step delay see here:
-https://arduino.stackexchange.com/questions/46468/how-to-calculate-step-delay
+When the constructor is run, if there are not 4 pins supplied, the library will default to two wire control mode
+This library can control the speed of the motor in a range between 1 and 100 RPM (softcap of the library as to not cause missed steps, this can be changed in the library, to change this go to the .h file and change maxRPM)
 
-
-Note: As of version 1.0 completed 8/04/20, this library has not yet been tested on stepper motors and only works in theory
+Note: As of version 1.1 completed 10/04/20, this library has not yet been tested on stepper motors and only works in theory
