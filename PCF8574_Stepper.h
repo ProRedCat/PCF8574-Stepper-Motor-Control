@@ -1,6 +1,6 @@
 /*
  * Created by ProRedCat (Reilly Oldham) 
- * V 1.1 created 10/04/20
+ * V 1.2 created 14/04/20
  * NOTE: HAS NOT BEEN TESTED ON STEPPER MOTORS YET
  */
 
@@ -12,6 +12,8 @@
 
 class StepperMotor{
   private:
+    int stepsPerRev;
+  
     int pin1;
     int pin2;
     int pin3;
@@ -26,7 +28,7 @@ class StepperMotor{
     unsigned long stepDelay;
     unsigned long lastStepTime;
 
-    bool sDirection;
+    bool direction;
 
     void stepForward();
     void stepBackward();
@@ -35,10 +37,10 @@ class StepperMotor{
 
   public:
     //Constructor that takes in PCF8574 object, and the pins that the stepper motor is going to use
-    StepperMotor(PCF8574 &stepperExpander, int pin1, int pin2, int pin3 = NULL, int pin4 = NULL);
+    StepperMotor(PCF8574 &stepperExpander, int stepsPerRev, int pin1, int pin2, int pin3 = NULL, int pin4 = NULL);
     
-    void SSpeed(int sSpeed);
-    void SStep(int steps);
+    void setSpeed(float speed);
+    void step(int steps);
 };
 
 #endif
