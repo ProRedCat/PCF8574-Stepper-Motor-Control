@@ -1,5 +1,5 @@
-#include "PCF8574_Stepper.h"
-#include "PCF8574.h"
+#include <PCF8574_Stepper.h>
+#include <PCF8574.h>
 
 PCF8574 stepperExpander(0x20); //Create the PCF8574 object at the hex address the PCF8574 chip is at 
 
